@@ -15,10 +15,10 @@ public class TypeCard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 50)
     private String name;
 
-    @Column(unique = true, nullable =false)
+    @Column(unique = true, nullable =false, length = 4)
     private String number;//karta turining boshidagi 4 xonali raqami, masalan uzcard 8600
 
 }

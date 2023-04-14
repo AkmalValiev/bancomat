@@ -1,6 +1,7 @@
 package uz.pdp.lesson62bankomat.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,8 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true)
+    @Size(min = 16, max = 16)
+    @Column(nullable = false, unique = true, length = 16)
     private String cardNumber;
 
     private Double balance=0.0;
@@ -32,16 +34,17 @@ public class Card {
     @ManyToOne
     private Bank bank;
 
-    @Column(nullable = false, unique = true)
+    @Size(min = 3, max = 3)
+    @Column(nullable = false, unique = true, length = 3)
     private String cvvCode;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String fullNameOfOwner;
 
     @Column(nullable = false)
     private String expireDate;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 4)
     private Integer pinCode;
 
     @ManyToOne

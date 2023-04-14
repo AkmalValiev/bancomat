@@ -1,6 +1,7 @@
 package uz.pdp.lesson62bankomat.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,8 @@ public class Bank {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(unique = true, nullable =false)
+    @Size(min = 6, max = 6)
+    @Column(unique = true, nullable =false, length = 6)
     private String number;//Bankning 6 xonali raqami
 
     private Double amountIn=0.0;//kartaga bankomat orqali pul solganda tushadigan foyda
